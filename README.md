@@ -11,7 +11,7 @@ Raspberry Pi NoIR camera with the filter attached in some way
 (more info: https://www.raspberrypi.org/blog/whats-that-blue-thing-doing-here/)
 
 ## install dependencies
-Assuming you already have pip and picamera preinstalled. If not:
+Assuming you already have pip and picamera preinstalled (like with Raspboan with desktop). If not:
 ```
 sudo apt-get update
 sudo apt-get install python-picamera python-pip
@@ -20,11 +20,24 @@ sudo apt-get install python-picamera python-pip
 Install opencv using:
 
 ```
-sudo pip install opencv-python numpy
+sudo apt-get install build-essential gfortran libatlas-base-dev python-pip python-dev
+sudo pip install --upgrade pip
+sudo pip install numpy
+sudo pip install scipy
+sudo apt-get install python-opencv
+```
+
+Pip was throwing me TypeErrors on Raspian, so I had to reinstall it:
+
+```
+apt-get remove python-pip python3-pip
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+sudo python3 get-pip.py
 ```
 
 ## running
-`python audio_analyzer_wav.py /path/to/wav/file`
+`python ndvi.py`
 
 You might need to set the camera rotation based on how you camera is positioned, e.g.:
 

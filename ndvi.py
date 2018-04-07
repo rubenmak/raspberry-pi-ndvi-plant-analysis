@@ -1,8 +1,4 @@
-'''
-sudo apt-get update
-sudo apt-get install python-picamera python-pip
-sudo pip install opencv-python numpy
-'''
+
 
 import sys
 import time
